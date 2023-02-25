@@ -14,6 +14,8 @@ const columns: ColumnsType<DataType> = [
     {
         title: 'Title',
         dataIndex: 'title',
+        sorter: (a, b) => (a.title < b.title ? -1 : 1),
+        sortDirections: ['ascend'],
     },
     {
         title: 'Isbn',
