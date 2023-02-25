@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Table } from 'antd';
 import type { ColumnsType, TableProps } from 'antd/es/table';
-import { parseCsvFromBookUrl } from '../../UtilityFunctions/FetchCsvData';
+import { parseCsvFromUrl } from '../../UtilityFunctions/FetchCsvData';
 import { Book } from '../../UtilityFunctions/dtos';
 
 interface DataType {
@@ -18,7 +18,7 @@ const columns: ColumnsType<DataType> = [
     {
         title: 'Isbn',
         dataIndex: 'isbn',
-        width:200
+        width: 200
     },
     {
         title: 'Authors',
@@ -39,7 +39,7 @@ const BooksTable = () => {
         console.log('params', pagination, filters, sorter, extra);
     };
     const fetchBooks = async () => {
-        const parsedBooks: Book[] = await parseCsvFromBookUrl(BOOKS_CSV_URL);
+        const parsedBooks: Book[] = await parseCsvFromUrl<Book>(BOOKS_CSV_URL);
         console.log(parsedBooks)
         setBooks(parsedBooks);
     }

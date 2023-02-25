@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Table } from 'antd';
 import type { ColumnsType, TableProps } from 'antd/es/table';
-import { parseCsvFromMagazineUrl } from '../../UtilityFunctions/FetchCsvData';
+import { parseCsvFromUrl } from '../../UtilityFunctions/FetchCsvData';
 import { Magazine } from '../../UtilityFunctions/dtos';
 
 interface DataType {
@@ -40,7 +40,7 @@ const MagazineTable = () => {
         console.log('params', pagination, filters, sorter, extra);
     };
     const fetchMagazines = async () => {
-        const parsedMagazines: Magazine[] = await parseCsvFromMagazineUrl(MagazineS_CSV_URL);
+        const parsedMagazines: Magazine[] = await parseCsvFromUrl<Magazine>(MagazineS_CSV_URL);
         console.log(parsedMagazines)
         setMagazines(parsedMagazines);
     }

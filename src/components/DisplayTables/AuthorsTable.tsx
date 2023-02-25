@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Table } from 'antd';
 import type { ColumnsType, TableProps } from 'antd/es/table';
-import { parseCsvFromAuthorUrl } from '../../UtilityFunctions/FetchCsvData';
+import { parseCsvFromUrl } from '../../UtilityFunctions/FetchCsvData';
 import { Author } from '../../UtilityFunctions/dtos';
 
 interface DataType {
@@ -32,9 +32,9 @@ const AuthorTable = () => {
         console.log('params', pagination, filters, sorter, extra);
     };
     const fetchMagazines = async () => {
-        const parsedMagazines: Author[] = await parseCsvFromAuthorUrl(AUTHORS_CSV_URL);
-        console.log(parsedMagazines)
-        setMagazines(parsedMagazines);
+        const parsedAuthors: Author[] = await parseCsvFromUrl<Author>(AUTHORS_CSV_URL);
+        console.log(parsedAuthors)
+        setMagazines(parsedAuthors);
     }
 
     useEffect(() => {
