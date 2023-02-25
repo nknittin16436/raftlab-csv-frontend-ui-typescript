@@ -1,7 +1,7 @@
-#This is the UI part for the assignment where I have after fetching the csvData from url provided and parsing it displayed it in form of Tables for better readability.
+# This is the UI part for the assignment where I have after fetching the csvData from url provided and parsing it displayed it in form of Tables for better readability.
 ## You can also sort the Books and Magazines by Title.
 
-Link : [Deployed App](https://reunion-assignment-nand-kumar.vercel.app/)
+Link : [Deployed App](https://raftlab-csv-frontend-ui-typescript.vercel.app/)
 
 ## Available Scripts
 
